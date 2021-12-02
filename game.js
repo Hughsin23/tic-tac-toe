@@ -2,7 +2,7 @@ console.log(`wow a game!`)
 
 //var img1 = document.querySelector('span img').src = '' //this lets you change the images source if the img is inside the span
 
-var boardSpaces = document.querySelectorAll('span')
+var boardSpaces = document.querySelectorAll('.board')
 var topLeft = document.getElementById('top-left')
 var topMid = document.getElementById('top-mid')
 var topRight = document.getElementById('top-right')
