@@ -20,6 +20,7 @@ var drawCount = document.querySelector('.draw-count')
 var resetButton = document.querySelector
 
 
+
 var rounds = 0
 var turn = 0
 var player = 'O'
