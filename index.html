@@ -10,31 +10,46 @@
 <body>
     <div class="game-container">
         <h1>Welcome to my tic-tac-toe!</h1>
-        <h3>It's player <span id="which-players-turn">O</span>s turn</h3>
+        <h3>It's player <span id="which-players-turn">O</span>'s turn</h3>
         <h3 class="win-tracker">
             Player O wins: <span class="player-o-wincount">0</span>. 
             Player X wins: <span class="player-x-wincount">0</span>.
             Draws: <span class="draw-count">0</span>
         </h3>
-        <div class="grid-container">
-            <span class='board' id="top-left"></span>
-            <span class='board' id="top-mid"></span>
-            <span class='board' id="top-right"></span>
-            <span class='board' id="mid-left"></span>
-            <span class='board' id="mid-mid"></span>
-            <span class='board' id="mid-right"></span>
-            <span class='board' id="bot-left"></span>
-            <span class='board' id="bot-mid"></span>
-            <span class='board' id="bot-right"></span>
-        </div>
-        <section class="msg"></section>
-        <section></section>
-        <button>Reset</button>
+        <!-- t2b = top to bottom, for diagonals, b2p = bottom to top for diagonals -->
+    <div class="grid-container five">
+        <span class="board row-1 column-1 grid-5x5-diag-t2b"></span>
+        <span class="board row-1 column-2"></span>
+        <span class="board row-1 column-3"></span>
+        <span class="board row-1 column-4"></span>
+        <span class="board row-1 column-5 grid-5x5-diag-b2t"></span>
+        <span class="board row-2 column-1"></span>
+        <span class="board row-2 column-2 grid-5x5-diag-t2b"></span>
+        <span class="board row-2 column-3"></span>
+        <span class="board row-2 column-4 grid-5x5-diag-b2t"></span>
+        <span class="board row-2 column-5"></span>
+        <span class="board row-3 column-1"></span>
+        <span class="board row-3 column-2"></span>
+        <span class="board row-3 column-3 grid-5x5-diag-t2b grid-5x5-diag-b2t"></span>
+        <span class="board row-3 column-4"></span>
+        <span class="board row-3 column-5"></span>
+        <span class="board row-4 column-1"></span>
+        <span class="board row-4 column-2 grid-5x5-diag-b2t"></span>
+        <span class="board row-4 column-3"></span>
+        <span class="board row-4 column-4 grid-5x5-diag-t2b"></span>
+        <span class="board row-4 column-5"></span>
+        <span class="board row-5 column-1 grid-5x5-diag-b2t"></span>
+        <span class="board row-5 column-2"></span>
+        <span class="board row-5 column-3"></span>
+        <span class="board row-5 column-4"></span>
+        <span class="board row-5 column-5 grid-5x5-diag-t2b"></span>
     </div>
-
-
-
-
+    <section class="msg"></section>
+    
+    <button class="reset-btn">Reset</button>
+    <button class="grid-3x3-btn">3x3 grid!</button>
+    <button class="grid-5x5-btn">5x5 grid!</button>
+</div>
 
 
 
