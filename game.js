@@ -585,6 +585,7 @@ function handleReset(){
     audioX.currentTime = 0;
     audioReset.play();
     player = 'O'
+    whichPlayersTurn.textContent = player
     turn = 0
     msg.textContent = ''
     msg.classList.remove('winner')
