@@ -1,30 +1,30 @@
 
-var boardSpaces = document.querySelectorAll('.board')
-var row1 = document.querySelectorAll('.row-1')
-var row2 = document.querySelectorAll('.row-2')
-var row3 = document.querySelectorAll('.row-3')
-var row4 = document.querySelectorAll('.row-4')
-var row5 = document.querySelectorAll('.row-5')
-var column1 = document.querySelectorAll('.column-1')
-var column2 = document.querySelectorAll('.column-2')
-var column3 = document.querySelectorAll('.column-3')
-var column4 = document.querySelectorAll('.column-4')
-var column5 = document.querySelectorAll('.column-5')
-var threeByThreeDiagonalsTop2Bottom = document.querySelectorAll('.grid-3x3-diag-t2b')
-var threeByThreeDiagonalsBottom2Top = document.querySelectorAll('.grid-3x3-diag-b2t')
-var fiveByFiveDiagonalsTop2Bottom = document.querySelectorAll('.grid-5x5-diag-t2b')
-var fiveByFiveDiagonalsBottom2Top = document.querySelectorAll('.grid-5x5-diag-b2t')
-var resetBtn = document.querySelector('.reset-btn')
-var threeByThreeBtn = document.querySelector('.grid-3x3-btn')
-var fiveByFiveBtn = document.querySelector('.grid-5x5-btn')
-var gridContainer = document.querySelector('.grid-container')
-var msg = document.querySelector('.msg')
-var whichPlayersTurn = document.querySelector('#which-players-turn')
-var playerOWincountDisplay = document.querySelector('.player-o-wincount')
-var playerXWincountDisplay = document.querySelector('.player-x-wincount')
-var drawCount = document.querySelector('.draw-count')
-var grid3x3Background = document.querySelector('.three')
-var grid5x5Background = document.querySelector('.five')
+var boardSpaces = document.querySelectorAll('.board');
+var row1 = document.querySelectorAll('.row-1');
+var row2 = document.querySelectorAll('.row-2');
+var row3 = document.querySelectorAll('.row-3');
+var row4 = document.querySelectorAll('.row-4');
+var row5 = document.querySelectorAll('.row-5');
+var column1 = document.querySelectorAll('.column-1');
+var column2 = document.querySelectorAll('.column-2');
+var column3 = document.querySelectorAll('.column-3');
+var column4 = document.querySelectorAll('.column-4');
+var column5 = document.querySelectorAll('.column-5');
+var threeByThreeDiagonalsTop2Bottom = document.querySelectorAll('.grid-3x3-diag-t2b');
+var threeByThreeDiagonalsBottom2Top = document.querySelectorAll('.grid-3x3-diag-b2t');
+var fiveByFiveDiagonalsTop2Bottom = document.querySelectorAll('.grid-5x5-diag-t2b');
+var fiveByFiveDiagonalsBottom2Top = document.querySelectorAll('.grid-5x5-diag-b2t');
+var resetBtn = document.querySelector('.reset-btn');
+var threeByThreeBtn = document.querySelector('.grid-3x3-btn');
+var fiveByFiveBtn = document.querySelector('.grid-5x5-btn');
+var gridContainer = document.querySelector('.grid-container');
+var msg = document.querySelector('.msg');
+var whichPlayersTurn = document.querySelector('#which-players-turn');
+var playerOWincountDisplay = document.querySelector('.player-o-wincount');
+var playerXWincountDisplay = document.querySelector('.player-x-wincount');
+var drawCount = document.querySelector('.draw-count');
+var grid3x3Background = document.querySelector('.three');
+var grid5x5Background = document.querySelector('.five');
 
 var audioX = new Audio('./audio/hughsaysX.m4a');
 var audioO = new Audio('./audio/hughsaysO.m4a');
@@ -35,63 +35,52 @@ var audio3x3 = new Audio('./audio/threegrid.m4a');
 var audio5x5 = new Audio('./audio/fivegrid.m4a');
 
 
-var player = 'O'
-var turn = 0
-var gridType = '5x5'
-var isBoardClear = true
-var rounds = 0
-var playerONumberOfWins = 0
-var playerXNumberOfWins = 0
-var numberOfDraws = 0
+var player = 'O';
+var turn = 0;
+var gridType = '5x5';
+var isBoardClear = true;
+var rounds = 0;
+var playerONumberOfWins = 0;
+var playerXNumberOfWins = 0;
+var numberOfDraws = 0;
 
-function checkTiles(fn){
-    if (fn() == true){
-        msg.classList.add('winner')
-    }
-}
 
 function checkWin(){
     
-    checkTiles(checkRow1)
+    checkTiles(checkRow1);
     
     checkTiles(checkRow2);
     
     checkTiles(checkRow3);
-
+    
     if (gridType == '5x5'){
         checkTiles(checkRow4);
-    }
+    };
     if (gridType == '5x5'){
         checkTiles(checkRow5);
-    }
+    };
     checkTiles(checkColumn1);
     checkTiles(checkColumn2);
     checkTiles(checkColumn3);
     if (gridType == '5x5') {
         checkTiles(checkColumn4);
-    }
+    };
     if (gridType == '5x5') {
         checkTiles(checkColumn5);
-    }
+    };
     if (gridType == '5x5') {
         checkTiles(check5x5DiagTopToBottom);
-    }
+    };
     if (gridType == '5x5'){
         checkTiles(check5x5DiagBottomToTop);
-    }
+    };
     if(gridType == '3x3'){
         checkTiles(check3x3DiagTopToBottom);
-    }
+    };
     if(gridType == '3x3'){
         checkTiles(check3x3DiagBottomToTop);
-    }
-}
-
-
-
-
-
-
+    };
+};
 
 
 boardSpaces.forEach(function(box){
@@ -102,7 +91,14 @@ resetBtn.addEventListener('click', handleReset)
 threeByThreeBtn.addEventListener('click', handle3x3Grid)
 fiveByFiveBtn.addEventListener('click', handle5x5Grid)
 
+function checkTiles(fn){ //this gets passed a function that will return true or false, if it's true, it gives the msg element the winner class, which will trigger all the winner events.
+    if (fn() == true){
+        msg.classList.add('winner')
+    }
+}
 
+
+//all of these check functions do the same thing, but for different "win combos"
 function checkColumn1(){
     var testArray = []
     var allTrue = false
