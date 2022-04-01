@@ -1,4 +1,4 @@
-
+//  time to condense this down
 var boardSpaces = document.querySelectorAll('.board');
 var row1 = document.querySelectorAll('.row-1');
 var row2 = document.querySelectorAll('.row-2');
